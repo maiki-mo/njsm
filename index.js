@@ -4,12 +4,15 @@
 *
 */
 
-// Dependencies
+// Node dependencies
 const http = require('http');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
+
+// Import files
 const router = require('./router');
 const handlers = require('./handlers');
+const config = require('./config');
 
 // The server should respond to all requests with a string
 const server = http.createServer((req, res) => {
@@ -79,6 +82,7 @@ const server = http.createServer((req, res) => {
 })
 
 // Start the server and listen on port 3000
-server.listen(3000, () => {
-  console.log('Server listening on port: 3000');
+const { port, envName } = config;
+server.listen(config.port, () => {
+  console.log('Server listening on port', port, 'in', envName, 'mode');
 });
