@@ -5,10 +5,11 @@
 */
 
 // Dependencies
-
 const http = require('http');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
+const router = require('./router');
+const handlers = require('./handlers');
 
 // The server should respond to all requests with a string
 const server = http.createServer((req, res) => {
@@ -81,18 +82,3 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
   console.log('Server listening on port: 3000');
 });
-
-// Define our hadlers
-const handlers = {
-  sample: (data, callback) => {
-    callback(406, { 'name': 'Sample Handler'} )
-  },
-  notFound: (data, callback) => {
-    callback(404, {} )
-  },
-}
-
-// Define a request router
-const router = {
-  'sample' : handlers.sample,
-}
