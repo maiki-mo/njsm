@@ -12,13 +12,34 @@ const fs = require('fs');
 // Import local files
 const config = require('./config');
 const singleServer = require('./single-server');
-const { create } = require('./lib/data');
+const { create, updae, read, deleteFile } = require('./lib/index');
 
 // TESTING
 // @TODO delete this
-create('\\test', '\\newFile', { "dog": "cat" }, (result) => {
-  console.log('Result:', result);
-})
+
+// Create
+// create('\\test', '\\newFile', { "dog": "cat" }, (result) => {
+//   console.log('Result:', result);
+// })
+
+// Read
+// read('\\test', '\\newFile', (err, result) => {
+//   if (!err) {
+//     console.log('Result:', result);
+//   } else {
+//     console.log('There was an error:', err);
+//   }
+// })
+
+// Update
+// update('\\test', '\\newFile', { "fizz": "buzz" }, (err) => {
+//   console.log('There was an error:', err);
+// })
+
+// Delete
+deleteFile('\\test', '\\newFile', (err) => {
+  console.log('There was an error:', err);
+});
 
 // The server should respond to all requests with a string
 const httpServer = http.createServer((req, res) => {
