@@ -5,6 +5,7 @@ const StringDecoder = require('string_decoder').StringDecoder;
 // Import local dependencies
 const router = require('./router');
 const handlers = require('./handlers');
+const { parseJSONtoObject } = require('./helpers/helpers');
 
 // Unified server
 const unifiedServer = (req, res) => {
@@ -47,7 +48,7 @@ const unifiedServer = (req, res) => {
         queryStringObject,
         method,
         headers,
-        'payload': buffer,
+        'payload': parseJSONtoObject(buffer),
       }
   
       // Route the req to the handler specified to the router

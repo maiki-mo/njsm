@@ -37,9 +37,9 @@ const { create, updae, read, deleteFile } = require('./lib/index');
 // })
 
 // Delete
-deleteFile('\\test', '\\newFile', (err) => {
-  console.log('There was an error:', err);
-});
+// deleteFile('\\test', '\\newFile', (err) => {
+//   console.log('There was an error:', err);
+// });
 
 // The server should respond to all requests with a string
 const httpServer = http.createServer((req, res) => {

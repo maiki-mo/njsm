@@ -7,13 +7,15 @@ const environments = {
         httpPort: 3000,
         httpsPort: 3001,
         envName: 'Staging',
+        hashingSecret: 'thisisasecret',
     },
 
-    // Proudction
+    // Production
     production: {
         httpPort: 5000,
         httpsPort: 5001,
         envName: 'Production',
+        hashingSecret: 'thisisalsoasecret',
     },
 };
 
