@@ -7,7 +7,7 @@ const config = require('./../config');
 const helpers = {
   hash: (string) => {
     if (typeof (string) === 'string' && string.length > 0) {
-      const hash = crypto.createHmac('sa256', config.hashingSecret).update(string).digest('hex');
+      const hash = crypto.createHmac('sha256', config.hashingSecret).update(string).digest('hex');
       return hash;
     } else {
       return false;
@@ -17,7 +17,7 @@ const helpers = {
     try {
       return JSON.parse(buffer);
     } catch (err) {
-      return {}
+      return {};
     };
   },
 }

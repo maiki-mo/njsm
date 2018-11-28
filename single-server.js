@@ -42,13 +42,14 @@ const unifiedServer = (req, res) => {
       // Choose the handler this request should go to (if not found, use 'Not Found' handler)
       const chosenHandler = router[trimmedPath] ? router[trimmedPath] : handlers.notFound;
   
+      const payload = parseJSONtoObject(buffer);
       // Construct data object to send to handler
       const data = {
         trimmedPath,
         queryStringObject,
         method,
         headers,
-        'payload': parseJSONtoObject(buffer),
+        payload,
       }
   
       // Route the req to the handler specified to the router
